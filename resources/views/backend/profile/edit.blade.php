@@ -12,7 +12,7 @@
                   <font style="vertical-align: inherit;">Manage Profile</font>
                </font>
             </h4>
-            <div class="text-center col-md-12 " >           
+            <div class="text-center col-md-12 ">
                <img class="rounded-circle mr-3 " src="{{(!empty($editData->image)) ?  url('upload/admin_image/'.$editData->image) : url('upload/no_image.jpg') }}" width="120" height="120">
             </div>
             <div class="basic-form">
@@ -83,10 +83,10 @@
                               <font style="vertical-align: inherit;">Profile image</font>
                            </font>
                         </label>
-                        <input type="file"  id ="image" name="image" class="form-control input-rounded">
+                        <input type="file" id="image" name="image" class="form-control input-rounded">
                      </div>
                      <div class="form-group col-md-3 text-center mt-2">
-                       <img id="showImage" src="{{(!empty($editData->image)) ?  url('upload/admin_image/'.$editData->image) : url('upload/no_image.jpg') }}" width="70" height="70">
+                        <img id="showImage" src="{{(!empty($editData->image)) ?  url('upload/admin_image/'.$editData->image) : url('upload/no_image.jpg') }}" width="70" height="70">
                      </div>
                   </div>
                   <div class="form-row">
@@ -107,11 +107,11 @@
 </div>
 
 <script type='text/javascript'>
-   $(document).ready(function(){
-      $("#image").change(function(e){
+   $(document).ready(function() {
+      $("#image").change(function(e) {
          var reader = new FileReader();
-         reader.onload = function(e){
-            $('#showImage').attr('src',e.target.result);
+         reader.onload = function(e) {
+            $('#showImage').attr('src', e.target.result);
          }
          reader.readAsDataURL(e.target.files['0']);
       });

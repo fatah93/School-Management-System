@@ -161,7 +161,7 @@
                <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                   <span></span>
                   <span class="activity active"></span>
-                  <img src="{{ (!empty($adminData->image)) ? url('upload/admin_image/'.$adminData->image) : url('upload/no_image.jpg')}}" height="40" width="40" >
+                  <img src="{{ (!empty(Auth::user()->image)) ? url('upload/admin_image/'.Auth::user()->image) : url('upload/no_image.jpg')}}" height="40" width="40" >
                </div>
                <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                   <div class="dropdown-content-body">

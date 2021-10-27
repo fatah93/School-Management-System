@@ -38,20 +38,6 @@
                   </div>
                </div>
                <div class="form-group row">
-                  <label class="col-lg-4 col-form-label" for="val-email">
-                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Password : </font>
-                     </font><span class="text-danger">
-                        <font style="vertical-align: inherit;">
-                           <font style="vertical-align: inherit;">*</font>
-                        </font>
-                     </span>
-                  </label>
-                  <div class="col-lg-6">
-                     <input type="password" class="form-control rounded" id="val-password" name="password" placeholder="Enter password" required>
-                  </div>
-               </div>
-               <div class="form-group row">
                   <label class="col-lg-4 col-form-label" for="val-skill">
                      <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">User Role : </font>
@@ -62,20 +48,20 @@
                      </span>
                   </label>
                   <div class="col-lg-6">
-                     <select class="form-control rounded" id="val-skill" name="usertype" required>
+                     <select class="form-control rounded" id="role" name="role" required>
                         <option value="" selected='' disabled="" >
                            <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Select role</font>
                            </font>
                         </option>
-                        <option value="admin">
+                        <option value="Admin">
                            <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Admin role</font>
                            </font>
                         </option>
-                        <option value="user">
+                        <option value="Operator">
                            <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">User role</font>
+                              <font style="vertical-align: inherit;">Operator</font>
                            </font>
                         </option>
                      </select>

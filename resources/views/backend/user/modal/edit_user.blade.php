@@ -54,20 +54,20 @@
                      </span>
                   </label>
                   <div class="col-lg-6">
-                     <select class="form-control rounded" id="val-skill" name="usertype">
+                     <select class="form-control rounded" id="role" name="role">
                         <option value="" selected='' disabled="">
                            <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Select role</font>
                            </font>
                         </option>
-                        <option value="admin" {{($user->usertype == "admin") ? "selected" : ""}}>
+                        <option value="admin" {{($user->role == "Admin") ? "selected" : ""}}>
                            <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Admin </font>
                            </font>
                         </option>
-                        <option value="user" {{($user->usertype == "user") ? "selected" : ""}}>
+                        <option value="user" {{($user->role == "Operator") ? "selected" : ""}}>
                            <font style="vertical-align: inherit;">
-                              <font style="vertical-align: inherit;">User </font>
+                              <font style="vertical-align: inherit;">Operator </font>
                            </font>
                         </option>
                         @error('usertype')

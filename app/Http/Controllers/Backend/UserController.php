@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class UserController extends Controller
 {
     public function ViewUser(){
         // $allData = User::all();
-        $data['allData'] = User::all();
+        $data['allData'] = User::where('usertype','Admin')->get();
         return view('backend.user.view_user',$data);
     }
 
@@ -20,12 +22,11 @@ class UserController extends Controller
     }
 
     public function StoreUser(Request $request){
-
         $validateData = $request->validate([
             'name'     => 'required|min:4|unique:users',
             'email'    => 'required|unique:users',
-            'usertype' => 'required',
-            'password' => 'required|min:5'
+            'role'     => 'required', 
+
         ],[
             'name.required'  => 'please entre the name',
             'name.min'       => 'the name muste contain more than 4 characters',
@@ -34,17 +35,17 @@ class UserController extends Controller
             'email.required' => 'please enter the email',
             'name.unique'    => 'you can\'t add it with this email,change it',
             
-            'usertype.required'      => 'please select the user role',
-             
-            'password.required' => 'please enter the password',
-            'password.min'      => 'the password must contain more than 5 characters',
+            'role.required'      => 'please select the user role',
         ]);
-
+        
+        $code = Str::random(10);
         $data = User::insert([
             'name'      => $request->name,
             'email'     => $request->email,
-            'usertype'  => $request->usertype,
-            'password'  => bcrypt($request->password),
+            'role'      => $request->role,
+            'usertype'  =>'Admin',
+            'password'  => bcrypt($code),
+            'code'      => $code,
             'created_at'=> Carbon::now() 
         ]);
 
@@ -84,7 +85,7 @@ class UserController extends Controller
         $data = User::find($id);
         $data->name = $request->name;
         $data->email= $request->email;
-        $data->usertype = $request->usertype;
+        $data->usertype = $request->role;
         $data->updated_at = Carbon::now();
         $data->save();
 
@@ -111,4 +112,6 @@ class UserController extends Controller
 
         return redirect()->route('view.user')->with($notification);
     }
+
+
 }

@@ -12,8 +12,9 @@
                   </div>
                   <div class="col-sm-12 col-md-2">
                      <button type="button" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#ModalAddUser">
-                        Add
+                        Add user
                      </button>
+                     @include('backend.user.modal.add_user')
                   </div>
                </div>
             </div>
@@ -77,8 +78,8 @@
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Bureau : activer pour trier les colonnes par ordre croissant" style="width: 91.7188px;">
                                        Role
                                     </th>
-                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Âge&nbsp;: activer pour trier la colonne par ordre croissant" style="width: 38.7344px;">
-                                       Created at
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Bureau : activer pour trier les colonnes par ordre croissant" style="width: 91.7188px;">
+                                       Code 
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date de début : activer pour trier les colonnes par ordre croissant" style="width: 83.5938px;">
                                        Action
@@ -91,8 +92,9 @@
                                     <td width='5%'>{{$key+1}} </td>
                                     <td width='20%'>{{ $user->name}}</td>
                                     <td width='25%'>{{$user->email}} </td>
-                                    <td width='20%'>{{ $user->usertype}} </td>
-                                    <td width='20%'>{{ $user->created_at->diffForHumans()}} </td>
+                                    <td width='20%'>{{ $user->role}} </td>
+                                    <td width='20%'>{{ ($user->code)?$user->code : "No code "}}</td>                                    
+                                    
                                     <td width='15%'>
                                        <a href="#" data-toggle="modal" data-target="#ModalEditUser{{$user->id}}">
                                           <i class="fa fa-pencil color-muted m-r-5"></i>
@@ -102,7 +104,6 @@
                                           <i class="fa fa-trash color-muted m-r-5"></i>
                                        </a>
                                        @include('backend.user.modal.edit_user')
-
                                     </td>
                                  </tr>
                                  @endforeach
@@ -172,6 +173,4 @@
       </div>
    </div>
 </div>
-@include('backend.user.modal.add_user')
-
 @endsection
